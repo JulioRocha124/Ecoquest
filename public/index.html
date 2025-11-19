@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoQuest</title>
+  <link rel="icon" href="../src/assets/favicon.ico" type="image/x-icon">
   <style>
+    /* Estilos básicos para el contenedor del juego */
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background: #000;
+      overflow: hidden; /* Evita barras de desplazamiento */
+      background: #000; /* Fondo negro para bordes */
     }
+    
+    /* Contenedor del juego que ocupa toda la pantalla */
     #game-container {
       width: 100vw;
       height: 100vh;
@@ -18,6 +22,8 @@
       justify-content: center;
       align-items: center;
     }
+    
+    /* Mensaje de carga inicial */
     .loading {
       color: white;
       position: absolute;
@@ -29,16 +35,22 @@
   </style>
 </head>
 <body>
-  <div id="game-container"></div>
+  <!-- Contenedor donde Phaser renderizará el juego -->
+  <div id="game-container"></div> 
+  
+  <!-- Mensaje de carga que se oculta cuando el juego inicia -->
   <div class="loading">Cargando EcoQuest...</div>
 
+  <!-- CDN de Phaser 3 (versión 3.60.0) -->
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
   
+  <!-- Carga de los scripts del juego en orden adecuado -->
   <script src="../src/scenes/menuScene.js"></script>
-  <script src="../src/scenes/baseLevelScene.js"></script>
+  <script src="../src/scenes/baseLevelScene_powerups_mensajes.js"></script>
   <script src="../src/scenes/levelScenes.js"></script>
-  <script src="../src/scenes/enemy.js"></script>
   <script src="../src/game.js"></script>
+  
+  <!-- Script para ocultar el mensaje de carga cuando todo está listo -->
   <script>
     window.addEventListener('load', function() {
       document.querySelector('.loading').style.display = 'none';
